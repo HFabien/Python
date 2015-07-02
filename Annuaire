@@ -1,0 +1,62 @@
+#/*************************  annuaire téléphonique ********************/
+#Création de l'annuaire
+annuaire = {'HERICOURT': ('Fabien', '0123456789'), 'DUPONT': ('Georges', '0987654321')}
+
+# Début de définition des fonctions
+def Ajout_client() :
+    print ("Fonction - Ajout")
+    nom = input("Son nom (en majuscule) : ")
+    prenom = input("Son prénom : ")
+    tel = input("Son téléphone : ")
+    annuaire[nom] = prenom, tel             # Défini les données du champs client
+    print("Ajout de :", nom, annuaire[nom])
+    
+def Recherche_client() :
+    print ("Fonction - Recherche")
+    nom = input("Son nom (en majuscule): ")
+    recherche = annuaire.get(nom)           # Récupère le champs client
+    print("Voici les informations du client recherché : ", recherche)
+    
+def Modification_client() :
+    print ("Fonction - Modification")
+    modif = input("Quel client voulez-vous modifier ? ")    
+    annuaire[modif] = input("Nouveau prénom : "), input("Nouveau téléphone : ") # Modifie les données du champs client
+    
+def Suppression_client() :
+    print ("Fonction - Suppression")
+    suppr = input("Entrez le nom du client (en majuscule) à supprimer : ")
+    del annuaire[suppr]                     # Supprime le champs client et ses données
+    print(suppr," a été supprimé(e) de l'annuaire")
+
+def Affichage_client() :
+    print ("Fonction - Affichage")
+    print("Annuaire : ", annuaire)    # Affiche l'annuaire complet
+# Fin de définition des fonctions
+
+# Début Menu
+print("""Annuaire téléphonique 12.0
+    1. Ajout d'un client
+    2. Recherche d'un client
+    3. Modification d'un client
+    4. Suppression d'un client
+    5. Affichage d'un client
+    6. Quitter""")
+# Fin Menu
+
+# Début Boucle
+while (1):
+# Le choix appel la fonction correspondante
+    choix = input("Choix : ") 
+    if choix =='1': 
+        Ajout_client();
+    elif choix == '2': 
+        Recherche_client();
+    elif choix == '3':
+        Modification_client();
+    elif choix == '4':
+        Suppression_client();
+    elif choix == '5':
+        Affichage_client();
+    elif choix == '6': 
+        break
+# Fin Boucle de répétition
